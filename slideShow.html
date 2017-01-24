@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link href="alligatorStyle.css" rel="stylesheet" type="text/css" />
+		<title>Alligators</title>
+
+
+		<script type-"text/javascript">
+			var index=0;
+
+			var timer;
+			function playSlideShow(){
+				clearInterval(timer);
+				timer=setInterval("changeImage()",1000);
+			}
+		function pauseSlideShow(){
+		clearInterval(timer);
+
+		}
+
+		function changeImage(){
+
+			var cont;
+			var images;
+			index++;
+			
+			
+			var images=new Array("alligator.jpg", "beware.jpg" ,"fatBoy.jpg", "gatorEyes.jpg" , "gatorGoing.jpg", "gatorRain.jpg");
+			 var cont=new Array("Alligators", "Beware", "Fat Boy" , " Gator Eyes" 
+				, "Gator Going" , "Gator Rain");
+
+			 			if(index>images.length-1){
+							index=0; }
+
+			document.getElementById("picture").src=images[index];
+			document.getElementById("caption").innerHTML=cont[index];
+
+					}
+
+
+		function changeImagePrev(){
+
+			index--;
+			var cont;
+			var images;
+			
+			var images=new Array("alligator.jpg", "beware.jpg" ,"fatBoy.jpg", "gatorEyes.jpg" , "gatorGoing.jpg", "gatorRain.jpg");
+			 var cont=new Array("Allig", "watchout", "bigboy" , " nice Eyes" 
+				, "Gator Going" , "Gator Rain");
+
+			 if(index<0)
+			 	index=images.length-1;
+
+			 document.getElementById("picture").src=images[index];
+			document.getElementById("caption").innerHTML=cont[index];
+					}
+		
+		
+</script>
+
+
+	</head>
+
+	<body>
+
+		<div class="mainContent">
+			<h1>Aligators</h1>
+			
+			<p><img src="alligator.jpg" id="picture" alt="Picture of Alligator" /></p>
+			
+			<p><button onclick ="changeImage()"> Next </button>
+				<button onclick="playSlideShow()">Play </button>
+				<button onclick="pauseSlideShow()">Pause </button>
+				<button onclick="changeImagePrev()">Prev </button>
+
+			</p>
+			
+			<p id="caption">Alligators</p>
+		</div>
+	</body>
+</html>
